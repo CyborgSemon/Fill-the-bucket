@@ -4,3 +4,16 @@
 	box-sizing: border-box;
 	font-family: 'Roboto', sans-serif;
 }
+.bucket {
+	height: 300px;
+	width: 200px;
+	border: 2px solid black;
+	position: relative;
+}
+
+.goal {
+	width: 100%;
+	background-color: blue;
+	position: absolute;
+	bottom: 0;
+}
