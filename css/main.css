@@ -26,3 +26,10 @@ main {
 	text-align: center;
 	font-size: 156px;
 }
+
+.blue-btn {
+	display: inline-block;
+	background-color: #3498db;
+	color: white;
+	padding: 20px 60px;
+}
