@@ -4,3 +4,25 @@
 	box-sizing: border-box;
 	font-family: 'Roboto', sans-serif;
 }
+
+header svg {
+    width: 200px;
+    height: auto;
+}
+
+button {
+    text-align: center;
+}
+
+header {
+	margin-top: 40px;
+}
+
+main {
+	margin-top: 40px;
+}
+
+.big-number {
+	text-align: center;
+	font-size: 156px;
+}
