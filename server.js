@@ -2,7 +2,12 @@ const express = require('express');
 const app = express();
 const port = 3000;
 const data = require('./data');
+const bodyParser = require('body-parser');
+const cors = require('cors');
 
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({extended:false}));
+app.use(cors());
 
 app.get('/death/year=:year', (req, res)=> {
 
