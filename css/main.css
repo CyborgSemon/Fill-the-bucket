@@ -4,3 +4,30 @@
 	box-sizing: border-box;
 	font-family: 'Roboto', sans-serif;
 }
+
+.fab {
+	width: 56px;
+	height: 56px;
+	border-radius: 50%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background-color: #4B5253;
+	color: white;
+	position: fixed;
+	bottom: 1rem;
+	right: 1rem;
+	box-shadow: 0 8px 20px rgba(0,0,0,0.12);
+	transition: 0.3s;
+	cursor: pointer;
+}
+
+.fab:hover {
+	box-shadow: 0 8px 20px rgba(0,0,0,0.20);
+	background-color: #383d3d;
+}
+
+
+.highlight {
+	position: relative;
+}
