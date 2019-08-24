@@ -1,25 +1,25 @@
 * {
-	margin: 0;
-	padding: 0;
-	box-sizing: border-box;
-	font-family: 'Roboto', sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Roboto", sans-serif;
 }
 
 header svg {
-    width: 200px;
-    height: auto;
+  width: 200px;
+  height: auto;
 }
 
 button {
-    text-align: center;
+  text-align: center;
 }
 
 header {
-	margin-top: 40px;
+  margin-top: 40px;
 }
 
 main {
-	margin-top: 40px;
+  margin-top: 40px;
 }
 
 .big-number {
@@ -32,4 +32,12 @@ main {
 	background-color: #3498db;
 	color: white;
 	padding: 20px 60px;
+}
+  text-align: center;
+  font-size: 156px;
+}
+
+#page2,
+#page3 {
+  display: none;
 }
