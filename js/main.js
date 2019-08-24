@@ -17,6 +17,7 @@ $("#subBtn").click(function() {
       $("#page2").show();
       let deathsNumber = $("#deathsNumber");
       deathsNumber.html(data.total);
+      $("#finalYear").html(year);
     }
   });
 });

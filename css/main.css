@@ -23,21 +23,40 @@ main {
 }
 
 .big-number {
-	text-align: center;
-	font-size: 156px;
+  text-align: center;
+  font-size: 96px;
 }
 
 .blue-btn {
-	display: inline-block;
-	background-color: #3498db;
-	color: white;
-	padding: 20px 60px;
+  display: inline-block;
+  background-color: #3da1fb;
+  color: white;
+  padding: 8px 24px;
+  border-radius: 40px;
+  transition: 0.1s;
 }
-  text-align: center;
-  font-size: 156px;
+
+.blue-btn:hover {
+  background-color: #6c54ed;
+  text-decoration: none;
+  color: white;
+  box-shadow: 2px 2px 24px 6px #cccccc;
 }
 
 #page2,
 #page3 {
   display: none;
+}
+
+.content {
+  border: solid 1px #dddddd;
+  border-radius: 20px;
+  padding: 30px;
+  margin-bottom: 60px;
+}
+
+.emphasised {
+  font-weight: 700;
+  color: #666;
+  font-size: 200%;
 }
