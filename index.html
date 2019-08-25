@@ -2,11 +2,11 @@
 <html lang="en" dir="ltr">
 	<head>
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<title>Bucket</title>
 		<link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
 		<link href="https://fonts.googleapis.com/css?family=Roboto:300,400,700&display=swap" rel="stylesheet">
 		<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 		<link href="css/main.css" rel="stylesheet">
+		<title>Bucket</title>
 	</head>
 	<body>
 		<div id="overlayBg"></div>
@@ -14,33 +14,45 @@
 			<div id="catListBtns">
 				<h4>Select category</h4>
 				<div class="category">
-					<div class="category-icon" id="cat1" data-catType="Travel" data-icon="flight_takeoff"><i class="material-icons">flight_takeoff</i></div>
+					<div class="category-icon" id="cat1" data-catType="Travel" data-icon="flight_takeoff">
+						<i class="material-icons">flight_takeoff</i>
+					</div>
 					<br>
 					Travel
 				</div>
 				<div class="category">
-					<div class="category-icon" id="cat2" data-catType="Outdoors" data-icon="landscape"><i class="material-icons">landscape</i></div>
+					<div class="category-icon" id="cat2" data-catType="Outdoors" data-icon="landscape">
+						<i class="material-icons">landscape</i>
+					</div>
 					<br>
 					Outdoors
 				</div>
 				<div class="category">
-					<div class="category-icon" id="cat3" data-catType="Food" data-icon="restaurant"><i class="material-icons">restaurant</i></div>
+					<div class="category-icon" id="cat3" data-catType="Food" data-icon="restaurant">
+						<i class="material-icons">restaurant</i>
+					</div>
 					<br>
 					Food
 				</div>
 				<br>
 				<div class="category">
-					<div class="category-icon" id="cat4" data-catType="Culture" data-icon="palette"><i class="material-icons">palette</i></div>
+					<div class="category-icon" id="cat4" data-catType="Culture" data-icon="palette">
+						<i class="material-icons">palette</i>
+					</div>
 					<br>
 					Culture
 				</div>
 				<div class="category">
-					<div class="category-icon" id="cat5" data-catType="Money" data-icon="monetization_on"><i class="material-icons">monetization_on</i></div>
+					<div class="category-icon" id="cat5" data-catType="Money" data-icon="monetization_on">
+						<i class="material-icons">monetization_on</i>
+					</div>
 					<br>
 					Money
 				</div>
 				<div class="category">
-					<div class="category-icon" id="cat6" data-catType="Other" data-icon="looks"><i class="material-icons">looks</i></div>
+					<div class="category-icon" id="cat6" data-catType="Other" data-icon="looks">
+						<i class="material-icons">looks</i>
+					</div>
 					<br>
 					Other
 				</div>
@@ -79,6 +91,7 @@
 							<div class="text-center">
 								<button type="submit" id="subBtn" class="red-btn">Enter</button>
 							</div>
+							<p id="invalidYear">That is an invalid year</p>
 						</form>
 					</div>
 					<div class="col-lg-4"></div>
@@ -163,6 +176,9 @@
 			</div>
 			<!-- THIRD PAGE END -->
 		</main>
+		<section>
+			<div class="wave"></div>
+		</section>
 		<script src="node_modules/jquery/dist/jquery.min.js"></script>
 		<script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
 		<script src="js/main.js"></script>
