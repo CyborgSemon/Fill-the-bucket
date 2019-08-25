@@ -1,83 +1,125 @@
 <!DOCTYPE html>
-<html>
+<html lang="en" dir="ltr">
+	<head>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Bucket</title>
+		<link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
+		<link href="https://fonts.googleapis.com/css?family=Roboto:300,400,700&display=swap" rel="stylesheet">
+		<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+		<link href="css/main.css" rel="stylesheet">
+	</head>
+	<body>
+		<div class="overlay">
+			Overlay content
+		</div>
+		<header class="container text-center">
+			<img src="img/title.png" class="title">
+		</header>
+		<main class="container">
+			<!-- FIRST PAGE -->
+			<div id="page1">
+				<div class="row">
+					<div class="col-lg-4"></div>
+					<div class="col-lg-4 content">
+						<form action="">
+							<div class="form-group">
+								<label for="email">Name:</label>
+								<input type="text" class="form-control" id="name">
+							</div>
+							<div class="form-group">
+								<label for="pwd">Birth year:</label>
+								<input type="text" class="form-control" id="year">
+							</div>
+							<div class="text-center">
+								<button type="submit" id="subBtn" class="red-btn">Enter</button>
+							</div>
+						</form>
+					</div>
+					<div class="col-lg-4"></div>
+				</div>
+			</div>
+			<!-- FIRST PAGE END -->
+			<!-- SECOND PAGE -->
+			<div id="page2">
+				<div class="row">
+					<div class="col-lg-4"></div>
+					<div class="col-lg-4 text-center content">
+						<h1 class="big-number" id="deathsNumber">13</h1>
+						<p>
+							People born in Aotearoa in <span id="finalYear"></span> have since
+							died.
+						</p>
+						<p class="emphasised">You're still here!</p>
+						<p>Let's make the most of it.</p>
+						<a href="#" id="secondBtn" class="purple-btn">Create a list</a>
+						<a href="index.html" class="small-link">Back</a>
+					</div>
+					<div class="col-lg-4"></div>
+				</div>
+			</div>
+			<!-- SECOND PAGE END -->
+			<!-- THIRD PAGE -->
+			<div id="page3">
+				<div class="row">
+					<div class="col-lg-4"></div>
+					<div class="col-lg-4 content text-center">
+						<h2>Fill your bucket!</h2>
+						<div class="tabBox">
+							<div class="highlight left">
+								<div class="tab active" tab-direction="left">To do!</div>
+								<div class="tab" tab-direction="right">Done!</div>
+							</div>
+						</div>
+						<div id="complete" class="list">
 
-<head>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Bucket</title>
-  <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css" />
-  <link href="https://fonts.googleapis.com/css?family=Roboto:400,700&display=swap" rel="stylesheet" />
-  <link href="css/main.css" rel="stylesheet" />
-</head>
-
-<body>
-  <div class="overlay">
-    Overlay content
-  </div>
-  <header class="container text-center">
-    <img src="img/title.png" class="title">
-  </header>
-  <main class="container">
-    <!-- FIRST PAGE -->
-    <div id="page1">
-      <div class="row">
-        <div class="col-lg-4"></div>
-        <div class="col-lg-4 content">
-          <form action="">
-            <div class="form-group">
-              <label for="email">Name:</label>
-              <input type="text" class="form-control" id="name" />
-            </div>
-            <div class="form-group">
-              <label for="pwd">Birth year:</label>
-              <input type="text" class="form-control" id="year" />
-            </div>
-            <div class="text-center">
-              <button type="submit" id="subBtn" class="red-btn">Enter</button>
-            </div>
-          </form>
-        </div>
-        <div class="col-lg-4"></div>
-      </div>
-    </div>
-    <!-- FIRST PAGE END -->
-
-    <!-- SECOND PAGE -->
-    <div id="page2">
-      <div class="row">
-        <div class="col-lg-4"></div>
-        <div class="col-lg-4 text-center content">
-          <h1 class="big-number" id="deathsNumber">13</h1>
-          <p>
-            People born in Aotearoa in <span id="finalYear"></span> have since
-            died.
-          </p>
-          <p class="emphasised">You're still here!</p>
-          <p>Let's make the most of it.</p>
-          <a href="#" id="secondBtn" class="purple-btn">Create a list</a>
-          <a href="index.html" class="small-link">Back</a>
-        </div>
-        <div class="col-lg-4"></div>
-      </div>
-    </div>
-    <!-- SECOND PAGE END -->
-
-    <!-- THIRD PAGE -->
-    <div id="page3">
-      <div class="row">
-        <div class="col-lg-4"></div>
-        <div class="col-lg-4 content text-center">
-          <h2>Fill your bucket!</h2>
-          <a href="#" class="small-link">Add</a>
-
-        </div>
-        <div class="col-lg-4"></div>
-      </div>
-    </div>
-    <!-- THIRD PAGE END -->
-  </main>
-  <script src="node_modules/jquery/dist/jquery.min.js"></script>
-  <script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
-  <script src="js/main.js"></script>
-</body>
-
+						</div>
+						<div id="toDo" class="list">
+							<div class="listItem">
+								<div class="listBtn">
+									<i class="material-icons">flight_takeoff</i>
+									Travel to England
+								</div>
+								<div class="options">
+									<div class="complete">
+										Complete
+									</div>
+									<div class="edit">
+										Edit
+									</div>
+									<div class="delete">
+										Delete
+									</div>
+								</div>
+							</div>
+							<div class="listItem">
+								<div class="listBtn">
+									<i class="material-icons">restaurant</i>
+									Try a burger
+								</div>
+								<div class="options">
+									<div class="complete">
+										Complete
+									</div>
+									<div class="edit">
+										Edit
+									</div>
+									<div class="delete">
+										Delete
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="col-lg-4"></div>
+				</div>
+				<div class="fab" id="fab">
+					<i class="material-icons">add</i>
+				</div>
+			</div>
+			<!-- THIRD PAGE END -->
+		</main>
+		<script src="node_modules/jquery/dist/jquery.min.js"></script>
+		<script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+		<script src="js/main.js"></script>
+	</body>
 </html>
