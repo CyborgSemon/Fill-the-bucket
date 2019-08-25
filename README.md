@@ -1,4 +1,4 @@
-# deathThing
+# Fill the bucket
 
 #### Ensure that you have NPM and Node.js install on your computer. Instalation can be found here [https://nodejs.org/en/](https://nodejs.org/en/)
 
