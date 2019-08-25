@@ -166,6 +166,11 @@ label {
 	line-height: 90px;
 	border-radius: 12px;
 	margin-bottom: 3px;
+	transition: 0.2s;
+}
+
+.category-icon:hover {
+	background-color: #545DFF;
 }
 
 .fab {
