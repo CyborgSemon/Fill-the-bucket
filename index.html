@@ -2,17 +2,59 @@
 <html lang="en" dir="ltr">
 	<head>
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
+		<link href="https://fonts.googleapis.com/css?family=Roboto:300,400&display=swap" rel="stylesheet">
 		<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 		<link href="css/main.css" rel="stylesheet">
 	</head>
 	<body>
 		<div class="tabBox">
-			<div class="highlight">
-				<div class="">To do!</div>
-				<div class="">Done!</div>
+			<div class="highlight left">
+				<div class="tab active" tab-direction="left">To do!</div>
+				<div class="tab" tab-direction="right">Done!</div>
 			</div>
 		</div>
+		<div class="mobileTest">
+			<div id="complete" class="list">
+
+			</div>
+			<div id="toDo" class="list">
+				<div class="listItem">
+					<div class="listBtn">
+						<i class="material-icons">flight_takeoff</i>
+						Travel to England
+					</div>
+					<div class="options">
+						<div class="complete">
+							Complete
+						</div>
+						<div class="edit">
+							Edit
+						</div>
+						<div class="delete">
+							Delete
+						</div>
+					</div>
+				</div>
+				<div class="listItem">
+					<div class="listBtn">
+						<i class="material-icons">restaurant</i>
+						Try a burger
+					</div>
+					<div class="options">
+						<div class="complete">
+							Complete
+						</div>
+						<div class="edit">
+							Edit
+						</div>
+						<div class="delete">
+							Delete
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
 		<div class="fab" id="fab">
 			<i class="material-icons">add</i>
 		</div>
