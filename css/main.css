@@ -12,7 +12,7 @@ h4 {
 	margin-bottom: 24px;
 }
 
-body {
+/*body {
 	background-color: #F4F2F2;
 	background-image: url("../img/wave.png");
 	background-position-x: center;
@@ -22,8 +22,74 @@ body {
 	background-size: contain;
 	height: 100vh;
 	overflow: hidden;
+}*/
 
+/* WAVE ANIMATION */
+
+body
+{
+    background-color: #F4F2F2;
+    margin: 0;
+	padding: 0;
 }
+section
+{
+    position: absolute;
+    width: 100%;
+    left: 0;
+    bottom: 0;
+    /* background: url(bg.jpg); */
+    background-size: cover;
+    background-attachment: fixed;
+    z-index: -1;
+}
+section .wave
+{
+    position: absolute;
+    width: 100%;
+    height: 286px;
+    bottom: 0;
+    left: 0;
+    opacity: 2;
+    background: url("../img/wave.png");
+    animation: animate 9s linear infinite;
+}
+section .wave:before
+{
+    content: '';
+    width: 100%;
+    height: 280px;
+    background: url("../img/wave3.png");
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    opacity: 1.2;
+    animation: animate-reverse 12s linear infinite;
+}
+@keyframes animate
+{
+    0%
+    {
+        background-position: 0;
+    }
+    100%
+    {
+        background-position: 1360px;
+    }
+}
+@keyframes animate-reverse
+{
+    0%
+    {
+        background-position: 0;
+    }
+    100%
+    {
+        background-position: 1360px;
+    }
+}
+
+/* END WAVE ANIMATION */
 
 header svg {
 	width: 200px;
@@ -167,10 +233,6 @@ label {
 	border-radius: 12px;
 	margin-bottom: 3px;
 	transition: 0.2s;
-}
-
-.category-icon:hover {
-	background-color: #545DFF;
 }
 
 .fab {
