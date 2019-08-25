@@ -1,4 +1,3 @@
-console.log("JS has loaded");
 let newIcon;
 
 $('#closeCat').click(()=> {
@@ -9,11 +8,12 @@ $('#closeCat').click(()=> {
 $('#addItem').click(()=> {
 	let newText = $('#itemText').val();
 	$('#toDo').append(`<div class="listItem"><div class="listBtn"><i class="material-icons">${newIcon}</i>${newText}</div><div class="options"><div class="complete">Complete</div><div class="edit">Edit</div><div class="delete">Delete</div></div></div>`);
-	// addevents($('#toDo').children()[$('#toDo').children().length - 1].childNodes[0]);
+	addevents($('#toDo').children()[$('#toDo').children().length - 1].childNodes[0]);
 	$('#inputArea').hide();
 	$('#catListBtns').show();
 	$('#overlay').hide();
 	$('#overlayBg').hide();
+	$('#itemText').val(null);
 });
 
 $('#closeCatInput').click(()=> {
@@ -31,7 +31,6 @@ $("#subBtn").click(function () {
 	event.preventDefault();
 
 	let year = parseInt($("#year").val());
-	let name = $("#name").val(); // TODO: Make the name button at the top of the screen
 
 	if (year >= 1948 && year <= 2018) {
 		$.ajax({
@@ -42,16 +41,16 @@ $("#subBtn").click(function () {
 				console.log(err);
 			},
 			success: data => {
-				console.log(data);
 				$("#page1").hide();
 				$("#page2").show();
 				let deathsNumber = $("#deathsNumber");
 				deathsNumber.html(data.total);
 				$("#finalYear").html(year);
+				$('#invalidYear').hide();
 			}
 		});
 	} else {
-		console.log('That date is to early or to late');
+		$('#invalidYear').show();
 	}
 });
 
@@ -132,27 +131,48 @@ function addevents(newElement) {
 			newElement.parentNode.classList.add('active');
 		}
 	});
-	// console.log('hmmmm');
-	// console.log(newElement.parentNode.childNodes);
-	newElement.parentNode.childNodes[3].childNodes[1].addEventListener('click', () => {
-		$(newElement.parentNode).removeClass('active');
-		let element = $(newElement.parentNode).clone();
-		if (newElement.parentNode.childNodes[3].childNodes[1].innerText == 'Undo') {
-			$('#toDo').append(element);
-			$('#toDo').children()[$('#toDo').children().length - 1].childNodes[3].childNodes[1].innerText = 'Complete';
+	try {
+		newElement.parentNode.childNodes[3].childNodes[1].addEventListener('click', () => {
+			$(newElement.parentNode).removeClass('active');
+			let element = $(newElement.parentNode).clone();
+			if (newElement.parentNode.childNodes[3].childNodes[1].innerText == 'Undo') {
+				$('#toDo').append(element);
+				$('#toDo').children()[$('#toDo').children().length - 1].childNodes[3].childNodes[1].innerText = 'Complete';
+				deleteItem(newElement);
+				addevents($('#toDo').children()[$('#toDo').children().length - 1].childNodes[1]);
+			} else {
+				$('#complete').append(element);
+				$('#complete').children()[$('#complete').children().length - 1].childNodes[3].childNodes[1].innerText = 'Undo';
+				deleteItem(newElement);
+				addevents($('#complete').children()[$('#complete').children().length - 1].childNodes[1]);
+			}
+		});
+		newElement.parentNode.childNodes[3].childNodes[5].addEventListener('click', () => {
 			deleteItem(newElement);
-			addevents($('#toDo').children()[$('#toDo').children().length - 1].childNodes[1]);
-		} else {
-			$('#complete').append(element);
-			$('#complete').children()[$('#complete').children().length - 1].childNodes[3].childNodes[1].innerText = 'Undo';
+		});
+	} catch (err) {
+		newElement.parentNode.childNodes[1].childNodes[0].addEventListener('click', () => {
+			$(newElement.parentNode).removeClass('active');
+			let element = $(newElement.parentNode).clone();
+			if (newElement.parentNode.childNodes[1].childNodes[0].innerText == 'Undo') {
+				$('#toDo').append(element);
+				$('#toDo').children()[$('#toDo').children().length - 1].childNodes[1].childNodes[0].innerText = 'Complete';
+				deleteItem(newElement);
+				addevents($('#toDo').children()[$('#toDo').children().length - 1].childNodes[0]);
+			} else {
+				$('#complete').append(element);
+				$('#complete').children()[$('#complete').children().length - 1].childNodes[1].childNodes[0].innerText = 'Undo';
+				deleteItem(newElement);
+				addevents($('#complete').children()[$('#complete').children().length - 1].childNodes[0]);
+			}
+		});
+		newElement.parentNode.childNodes[1].childNodes[2].addEventListener('click', () => {
 			deleteItem(newElement);
-			addevents($('#complete').children()[$('#complete').children().length - 1].childNodes[1]);
-		}
-	});
+		});
+	}
+
 	// newElement.parentNode.childNodes[3].childNodes[3].addEventListener('click', ()=> {
 	// 	// Edit text
 	// });
-	newElement.parentNode.childNodes[3].childNodes[5].addEventListener('click', () => {
-		deleteItem(newElement);
-	});
+
 }
