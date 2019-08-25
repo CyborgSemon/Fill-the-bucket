@@ -1,6 +1,6 @@
 console.log("JS has loaded");
 
-$("#subBtn").click(function() {
+$("#subBtn").click(function () {
 	event.preventDefault();
 
 	let year = parseInt($("#year").val());
@@ -33,12 +33,17 @@ $('#secondBackBtn').click(()=> {
 	$("#page1").show();
 });
 
-$("#secondBtn").click(function() {
+$("#secondBtn").click(function () {
 	event.preventDefault();
 	$("#page2").hide();
 	$("#page3").show();
+
+	$('#fab').click(() => {
+		document.getElementById('overlay').style.display = 'block';
+	});
+
 	let tab = $(".highlight");
-	tab.find(".tab").on("click", function() {
+	tab.find(".tab").on("click", function () {
 		let $this = $(this);
 
 		if ($this.hasClass("active")) return;
@@ -53,7 +58,7 @@ $("#secondBtn").click(function() {
 			$('#complete').show();
 		}
 
-		[].forEach.call(document.querySelectorAll('.listItem'), (ele)=> {
+		[].forEach.call(document.querySelectorAll('.listItem'), (ele) => {
 			ele.classList.remove('active');
 		});
 
@@ -63,22 +68,22 @@ $("#secondBtn").click(function() {
 	});
 
 
-	[].forEach.call(document.querySelectorAll('.listBtn'), (e)=> {
+	[].forEach.call(document.querySelectorAll('.listBtn'), (e) => {
 		addevents(e);
 	});
 
-	function addevents (newElement) {
-		newElement.addEventListener('click', ()=> {
+	function addevents(newElement) {
+		newElement.addEventListener('click', () => {
 			if (newElement.parentNode.className.includes('active')) {
 				newElement.parentNode.classList.remove('active');
 			} else {
-				[].forEach.call(document.querySelectorAll('.listItem'), (ele)=> {
+				[].forEach.call(document.querySelectorAll('.listItem'), (ele) => {
 					ele.classList.remove('active');
 				});
 				newElement.parentNode.classList.add('active');
 			}
 		});
-		newElement.parentNode.childNodes[3].childNodes[1].addEventListener('click', ()=> {
+		newElement.parentNode.childNodes[3].childNodes[1].addEventListener('click', () => {
 			$(newElement.parentNode).removeClass('active');
 			let element = $(newElement.parentNode).clone();
 			if (newElement.parentNode.childNodes[3].childNodes[1].innerText == 'Undo') {
@@ -96,22 +101,22 @@ $("#secondBtn").click(function() {
 		// newElement.parentNode.childNodes[3].childNodes[3].addEventListener('click', ()=> {
 		// 	// Edit text
 		// });
-		newElement.parentNode.childNodes[3].childNodes[5].addEventListener('click', ()=> {
+		newElement.parentNode.childNodes[3].childNodes[5].addEventListener('click', () => {
 			deleteItem(newElement);
 		});
 	}
 
-	function deleteItem (elementThing) {
+	function deleteItem(elementThing) {
 		$(elementThing.parentNode).css({
 			maxHeight: '0px',
 			marginBottom: '0px'
 		});
-		setTimeout(()=> {
+		setTimeout(() => {
 			$(elementThing.parentNode).remove();
 		}, 400);
 	}
 
-	function addItem () {
+	function addItem() {
 
 	}
 });

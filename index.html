@@ -9,8 +9,52 @@
 		<link href="css/main.css" rel="stylesheet">
 	</head>
 	<body>
-		<div class="overlay">
-			Overlay content
+		<div id="overlayBg"></div>
+		<div id="overlay">
+			<div id="catListBtns">
+				<h4>Select category</h4>
+				<div class="category">
+					<div class="category-icon" id="cat1" data-catType="Travel" data-icon="flight_takeoff"><i class="material-icons">flight_takeoff</i></div>
+					<br>
+					Travel
+				</div>
+				<div class="category">
+					<div class="category-icon" id="cat2" data-catType="Outdoors" data-icon="landscape"><i class="material-icons">landscape</i></div>
+					<br>
+					Outdoors
+				</div>
+				<div class="category">
+					<div class="category-icon" id="cat3" data-catType="Food" data-icon="restaurant"><i class="material-icons">restaurant</i></div>
+					<br>
+					Food
+				</div>
+				<br>
+				<div class="category">
+					<div class="category-icon" id="cat4" data-catType="Culture" data-icon="palette"><i class="material-icons">palette</i></div>
+					<br>
+					Culture
+				</div>
+				<div class="category">
+					<div class="category-icon" id="cat5" data-catType="Money" data-icon="monetization_on"><i class="material-icons">monetization_on</i></div>
+					<br>
+					Money
+				</div>
+				<div class="category">
+					<div class="category-icon" id="cat6" data-catType="Other" data-icon="looks"><i class="material-icons">looks</i></div>
+					<br>
+					Other
+				</div>
+				<br>
+				<a href="#" id="closeCat" class="small-link">Back</a>
+			</div>
+			<div id="inputArea">
+				<div class="form-group">
+					<label id="titleLabel" for="itemText"></label>
+					<input type="text" class="form-control" id="itemText">
+				</div>
+				<a href="#" id="addItem" class="purple-btn">Add item</a>
+				<a href="#" id="closeCatInput" class="small-link">Back</a>
+			</div>
 		</div>
 		<header class="container text-center">
 			<img src="img/title.png" class="title">
@@ -25,11 +69,11 @@
 					<div class="col-lg-4 content">
 						<form action="">
 							<div class="form-group">
-								<label for="email">Name:</label>
+								<label for="name">Name:</label>
 								<input type="text" class="form-control" id="name">
 							</div>
 							<div class="form-group">
-								<label for="pwd">Birth year:</label>
+								<label for="year">Birth year:</label>
 								<input type="text" class="form-control" id="year">
 							</div>
 							<div class="text-center">
