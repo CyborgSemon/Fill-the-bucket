@@ -3,23 +3,34 @@ console.log("JS has loaded");
 $("#subBtn").click(function() {
 	event.preventDefault();
 
-	let year = $("#year").val();
-	$.ajax({
-		url: `http://localhost:3000/death/year=${year}`,
-		type: "GET",
-		dataType: "json",
-		error: err => {
-			console.log(err);
-		},
-		success: data => {
-			console.log(data);
-			$("#page1").hide();
-			$("#page2").show();
-			let deathsNumber = $("#deathsNumber");
-			deathsNumber.html(data.total);
-			$("#finalYear").html(year);
-		}
-	});
+	let year = parseInt($("#year").val());
+	let name = $("#name").val(); // TODO: Make the name button at the top of the screen
+
+	if (year >= 1948 && year <= 2018) {
+		$.ajax({
+			url: `http://localhost:3000/death/year=${year}`,
+			type: "GET",
+			dataType: "json",
+			error: err => {
+				console.log(err);
+			},
+			success: data => {
+				console.log(data);
+				$("#page1").hide();
+				$("#page2").show();
+				let deathsNumber = $("#deathsNumber");
+				deathsNumber.html(data.total);
+				$("#finalYear").html(year);
+			}
+		});
+	} else {
+		console.log('That date is to early or to late');
+	}
+});
+
+$('#secondBackBtn').click(()=> {
+	$("#page2").hide();
+	$("#page1").show();
 });
 
 $("#secondBtn").click(function() {
