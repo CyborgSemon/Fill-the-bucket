@@ -1,4 +1,31 @@
 console.log("JS has loaded");
+let newIcon;
+
+$('#closeCat').click(()=> {
+	$('#overlay').hide();
+	$('#overlayBg').hide();
+});
+
+$('#addItem').click(()=> {
+	let newText = $('#itemText').val();
+	$('#toDo').append(`<div class="listItem"><div class="listBtn"><i class="material-icons">${newIcon}</i>${newText}</div><div class="options"><div class="complete">Complete</div><div class="edit">Edit</div><div class="delete">Delete</div></div></div>`);
+	// addevents($('#toDo').children()[$('#toDo').children().length - 1].childNodes[0]);
+	$('#inputArea').hide();
+	$('#catListBtns').show();
+	$('#overlay').hide();
+	$('#overlayBg').hide();
+});
+
+$('#closeCatInput').click(()=> {
+	$('#inputArea').hide();
+	$('#catListBtns').show();
+	$('#itemText').val(null);
+});
+
+$('#overlayBg').click(()=> {
+	$('#overlay').hide();
+	$('#overlayBg').hide();
+});
 
 $("#subBtn").click(function () {
 	event.preventDefault();
@@ -40,6 +67,17 @@ $("#secondBtn").click(function () {
 
 	$('#fab').click(() => {
 		document.getElementById('overlay').style.display = 'block';
+		$('#overlayBg').show();
+	});
+
+	[].forEach.call(document.querySelectorAll('.category'), (e)=> {
+		e.addEventListener('click', ()=> {
+			let title = e.childNodes[1].dataset.cattype;
+			newIcon = e.childNodes[1].dataset.icon;
+			$('#titleLabel').text(title);
+			$('#catListBtns').hide();
+			$('#inputArea').show();
+		});
 	});
 
 	let tab = $(".highlight");
@@ -71,52 +109,50 @@ $("#secondBtn").click(function () {
 	[].forEach.call(document.querySelectorAll('.listBtn'), (e) => {
 		addevents(e);
 	});
-
-	function addevents(newElement) {
-		newElement.addEventListener('click', () => {
-			if (newElement.parentNode.className.includes('active')) {
-				newElement.parentNode.classList.remove('active');
-			} else {
-				[].forEach.call(document.querySelectorAll('.listItem'), (ele) => {
-					ele.classList.remove('active');
-				});
-				newElement.parentNode.classList.add('active');
-			}
-		});
-		newElement.parentNode.childNodes[3].childNodes[1].addEventListener('click', () => {
-			$(newElement.parentNode).removeClass('active');
-			let element = $(newElement.parentNode).clone();
-			if (newElement.parentNode.childNodes[3].childNodes[1].innerText == 'Undo') {
-				$('#toDo').append(element);
-				$('#toDo').children()[$('#toDo').children().length - 1].childNodes[3].childNodes[1].innerText = 'Complete';
-				deleteItem(newElement);
-				addevents($('#toDo').children()[$('#toDo').children().length - 1].childNodes[1]);
-			} else {
-				$('#complete').append(element);
-				$('#complete').children()[$('#complete').children().length - 1].childNodes[3].childNodes[1].innerText = 'Undo';
-				deleteItem(newElement);
-				addevents($('#complete').children()[$('#complete').children().length - 1].childNodes[1]);
-			}
-		});
-		// newElement.parentNode.childNodes[3].childNodes[3].addEventListener('click', ()=> {
-		// 	// Edit text
-		// });
-		newElement.parentNode.childNodes[3].childNodes[5].addEventListener('click', () => {
-			deleteItem(newElement);
-		});
-	}
-
-	function deleteItem(elementThing) {
-		$(elementThing.parentNode).css({
-			maxHeight: '0px',
-			marginBottom: '0px'
-		});
-		setTimeout(() => {
-			$(elementThing.parentNode).remove();
-		}, 400);
-	}
-
-	function addItem() {
-
-	}
 });
+
+function deleteItem(elementThing) {
+	$(elementThing.parentNode).css({
+		maxHeight: '0px',
+		marginBottom: '0px'
+	});
+	setTimeout(() => {
+		$(elementThing.parentNode).remove();
+	}, 400);
+}
+
+function addevents(newElement) {
+	newElement.addEventListener('click', () => {
+		if (newElement.parentNode.className.includes('active')) {
+			newElement.parentNode.classList.remove('active');
+		} else {
+			[].forEach.call(document.querySelectorAll('.listItem'), (ele) => {
+				ele.classList.remove('active');
+			});
+			newElement.parentNode.classList.add('active');
+		}
+	});
+	// console.log('hmmmm');
+	// console.log(newElement.parentNode.childNodes);
+	newElement.parentNode.childNodes[3].childNodes[1].addEventListener('click', () => {
+		$(newElement.parentNode).removeClass('active');
+		let element = $(newElement.parentNode).clone();
+		if (newElement.parentNode.childNodes[3].childNodes[1].innerText == 'Undo') {
+			$('#toDo').append(element);
+			$('#toDo').children()[$('#toDo').children().length - 1].childNodes[3].childNodes[1].innerText = 'Complete';
+			deleteItem(newElement);
+			addevents($('#toDo').children()[$('#toDo').children().length - 1].childNodes[1]);
+		} else {
+			$('#complete').append(element);
+			$('#complete').children()[$('#complete').children().length - 1].childNodes[3].childNodes[1].innerText = 'Undo';
+			deleteItem(newElement);
+			addevents($('#complete').children()[$('#complete').children().length - 1].childNodes[1]);
+		}
+	});
+	// newElement.parentNode.childNodes[3].childNodes[3].addEventListener('click', ()=> {
+	// 	// Edit text
+	// });
+	newElement.parentNode.childNodes[3].childNodes[5].addEventListener('click', () => {
+		deleteItem(newElement);
+	});
+}
